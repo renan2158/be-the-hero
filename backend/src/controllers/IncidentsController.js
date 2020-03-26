@@ -4,19 +4,19 @@ module.exports = {
     async index(request, response) {
         const { page = 1 } = request.query;
 
-        const count = await connection.table('incidents').count();
+        const [count] = await connection('incidents').count();
 
-        const incidents = connection.table('incidents')
-            .join('ongs', 'ongs.id', '=', 'incidents.id')
+        const incidents = await connection('incidents')
+            .join('ongs', 'ongs.id', '=', 'incidents.ong_id')
             .limit(5)
             .offset((page - 1) * 5)
             .select([
                 'incidents.*',
-                'ong.name',
-                'ong.email',
-                'ong.whatsapp',
-                'ong.city',
-                'ong.uf'
+                'ongs.name',
+                'ongs.email',
+                'ongs.whatsapp',
+                'ongs.city',
+                'ongs.uf',
             ]);
         
         response.header('X-Total-Count', count['count(*)']);
@@ -43,12 +43,12 @@ module.exports = {
         const { id } = request.params;
         const ong_id = request.headers.authorization;
 
-        const incident = await connection.table('incidents')
+        const incident = await connection('incidents')
             .where('id', id)
             .select('ong_id')
             .first();
         
-        if (incident.ong_id != ong_id) {
+        if (incident.ong_id !== ong_id) {
             return response.status(401).json({ error: 'Operation nor permitted.' });
         }
 
