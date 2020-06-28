@@ -45,6 +45,6 @@
 ---
 
 <p align="center">
-  <strong>This project was developed at the Semana Omnistack 11.0</strong></br>
+  <strong>This project was developed at the Semana Omnistack 11.0,</strong></br>
   ministered by <a href="https://github.com/diego3g">Diego Fernandes</a>, CTO at :rocket: Rocketseat.
 </p>
