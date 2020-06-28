@@ -19,7 +19,9 @@
 
 ### :fire: Technologies used in the development
 
+- [ReactJS](https://reactjs.org/)
 - [NodeJS](https://nodejs.org/en/)
+- [React Native](https://reactnative.dev/)
 - [Expo](https://expo.io/)
 - [Express](https://expressjs.com/pt-br/)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
