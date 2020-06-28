@@ -28,8 +28,6 @@
 - [Axios](https://www.npmjs.com/package/axios)
 - [Cors](https://www.npmjs.com/package/cors)
 
----
-
 ## Screens
 
 ### :computer: Web
